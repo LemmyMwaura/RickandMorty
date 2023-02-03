@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 
 export class FetchDataService {
   URL = 'https://rickandmortyapi.com/api/character'
-  data!:any[]
   constructor(private _http:HttpClient) { }
 
   getData(): Observable<any> {
