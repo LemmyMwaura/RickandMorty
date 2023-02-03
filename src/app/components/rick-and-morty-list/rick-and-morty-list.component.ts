@@ -9,6 +9,7 @@ import { RickAndMorty } from 'src/app/models/rickAndMorty.model';
 })
 export class RickAndMortyListComponent implements OnInit {
   @Input() searchString!: string;
+  data: RickAndMorty[] = [];
 
   constructor(private _fetchDataService: FetchDataService) {
     this._fetchDataService
@@ -16,6 +17,5 @@ export class RickAndMortyListComponent implements OnInit {
       .subscribe((res) => (this.data = res.results));
   }
 
-  data!: RickAndMorty[];
   ngOnInit(): void {}
 }

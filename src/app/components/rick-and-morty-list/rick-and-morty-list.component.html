@@ -1,3 +1,3 @@
-<section class="wrapper" *ngFor="let item of data">
+<section class="wrapper" *ngFor="let item of data|filter:searchString">
   <app-rick-and-morty-item [item]="item"></app-rick-and-morty-item>
 </section>
