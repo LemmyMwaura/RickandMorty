@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FetchDataService } from 'src/app/providers/fetch-data.service';
-import { RickAndMorty } from 'src/app/models/rickAndMorty.model';
+import { RickAndMorty } from 'src/app/models/characters/rickAndMorty.model';
 
 @Component({
   selector: 'app-rick-and-morty-list',

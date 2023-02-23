@@ -1,3 +1,5 @@
-<section class="wrapper" *ngFor="let item of data|filter:searchString">
-  <app-rick-and-morty-item [item]="item"></app-rick-and-morty-item>
+<section class="wrapper">
+  <div *ngFor="let item of data|filter:searchString">
+    <app-rick-and-morty-item [item]="item"></app-rick-and-morty-item>
+  </div>
 </section>
