@@ -1,5 +1,9 @@
 <section class="home">
-  <input type="text" name="searchString" id="searchString" [(ngModel)]="searchString" placeholder="searchUsers">
-  <app-rick-and-morty-list [searchString]="searchString" >
-  </app-rick-and-morty-list>
+  <div class="input-wrapper">
+    <input type="text" name="searchString" id="searchString" [(ngModel)]="searchString" placeholder="search characters">
+  </div>
+  <div class="items">
+    <app-rick-and-morty-list [searchString]="searchString">
+    </app-rick-and-morty-list>
+  </div>
 </section>
