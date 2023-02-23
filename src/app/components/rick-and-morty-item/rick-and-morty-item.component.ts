@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RickAndMorty } from 'src/app/models/rickAndMorty.model';
+import { RickAndMorty } from 'src/app/models/characters/rickAndMorty.model';
 
 @Component({
   selector: 'app-rick-and-morty-item',
