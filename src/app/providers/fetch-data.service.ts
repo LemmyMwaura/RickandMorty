@@ -14,6 +14,10 @@ export class FetchDataService {
 
   constructor(private _http: HttpClient) {}
 
+  /**
+   * Returns an Observable that fetches a list of characters from the Rick and Morty API.
+   * @returns {Observable<AppData>} An Observable that resolves with an AppData object containing the data - info and list of characters.
+   */
   public getCharacters(): Observable<AppData> {
     return this._http
       .get<AppData>(this.URL)
@@ -21,11 +25,11 @@ export class FetchDataService {
   }
 
   /**
-   *
-   * @param id - Character ID
-   * @returns a unique character
+   * Returns an Observable that fetches a unique character from the Rick and Morty API.
+   * @param {number} id The ID of the character to fetch from the API.
+   * @returns {Observable<RickAndMorty>} An Observable that resolves with the data for the requested character.
    */
-  public getUniqueCharacter(id: number): Observable<any> {
+  public getUniqueCharacter(id: number): Observable<RickAndMorty> {
     return this._http
       .get<RickAndMorty>(`${this.URL}/${id}`)
       .pipe(retry(3), catchError(this.handleError));
