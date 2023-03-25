@@ -5,7 +5,13 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  border: 2px solid #181818;
   background-color: #181818;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid #f1d639;
+  }
 }
 
 .item-details {

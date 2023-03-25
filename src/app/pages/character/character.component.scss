@@ -7,22 +7,38 @@
 
 .character_wrapper {
   display: flex;
-  gap: 2rem;
+  gap: 3.5rem;
   padding: 2rem;
   border-radius: 5px;
   width: auto;
-  gap: 1rem;
-  border: 2px solid white;
+  // border: 2px solid white;
 
   .image {
     width: 80%;
     max-width: 300px;
     border-radius: 5px;
   }
-}
 
-.item-details {
-  font-size: 1.2rem;
-  color: white;
-}
+  .character{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
+    .specs{
+      display: grid;
+      gap: 5px;
+
+      * {
+        color: white;
+      }
+    }
+
+    .btn{
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+  }
+}

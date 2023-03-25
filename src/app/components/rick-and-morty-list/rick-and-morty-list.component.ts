@@ -21,7 +21,7 @@ export class RickAndMortyListComponent implements OnInit {
   characters$: Observable<AppData>;
 
   constructor(private _fetchDataService: FetchDataService) {
-    this.characters$ = this._fetchDataService.getData();
+    this.characters$ = this._fetchDataService.getCharacters();
   }
 
   ngOnInit(): void {}

@@ -1,8 +1,8 @@
-<article class="item-wrapper">
+<article class="item-wrapper" (click)="goToCharacter()">
   <div class="item-details">
-    <div>{{ character.name }}</div>
-    <div>{{ character.status }}</div>
-    <div>{{ character.species }}</div>
+    <div>Name: {{ character.name }}</div>
+    <div>Status: {{ character.status }}</div>
+    <div>Species: {{ character.species }}</div>
   </div>
   <img class="image" src={{character.image}} alt="">
 </article>

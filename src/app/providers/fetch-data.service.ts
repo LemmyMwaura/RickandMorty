@@ -14,7 +14,7 @@ export class FetchDataService {
 
   constructor(private _http: HttpClient) {}
 
-  public getData(): Observable<AppData> {
+  public getCharacters(): Observable<AppData> {
     return this._http
       .get<AppData>(this.URL)
       .pipe(retry(3), catchError(this.handleError));
