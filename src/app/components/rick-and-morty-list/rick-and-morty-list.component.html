@@ -1,5 +1,7 @@
-<section class="wrapper">
-  <div *ngFor="let item of (data|filter:searchString)">
-    <app-rick-and-morty-item [item]="item"></app-rick-and-morty-item>
+<section>
+  <div class="wrapper" *ngIf="characters$ | async as characters">
+    <div *ngFor="let character of (characters.results|filter:searchString)">
+      <app-rick-and-morty-item [character]="character"></app-rick-and-morty-item>
+    </div>
   </div>
 </section>
