@@ -1,0 +1,28 @@
+.character-page {
+  min-height: 100vh;
+  background-color: #181818;
+  display: grid;
+  place-content: center;
+}
+
+.character_wrapper {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 5px;
+  width: auto;
+  gap: 1rem;
+  border: 2px solid white;
+
+  .image {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 5px;
+  }
+}
+
+.item-details {
+  font-size: 1.2rem;
+  color: white;
+}
+

@@ -1,0 +1,15 @@
+<section class="character-page">
+  <div class="character_wrapper" *ngIf="character$ | async as character">
+    <img class="image" src={{character.image}} alt="">
+    <div class="character">
+      <div class="specs">
+        <div>Name: {{ character.name }}</div>
+        <div>Status: {{ character.status }}</div>
+        <div>Species: {{ character.species }}</div>
+        <div>Origin: {{ character.origin.name }}</div>
+        <div>Location: {{ character.location.name }}</div>
+      </div>
+      <button class="btn" (click)="goBack()">Back</button>
+    </div>
+  </div>
+</section>

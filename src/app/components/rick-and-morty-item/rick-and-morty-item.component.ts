@@ -4,6 +4,8 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { RickAndMorty } from 'src/app/models/characters/rickAndMorty.model';
 
 @Component({
@@ -15,7 +17,11 @@ import { RickAndMorty } from 'src/app/models/characters/rickAndMorty.model';
 export class RickAndMortyItemComponent implements OnInit {
   @Input() character!: RickAndMorty;
 
-  constructor() {}
+  constructor(private _router: Router) {}
 
   ngOnInit(): void {}
+
+  goToCharacter() {
+    this._router.navigate(['characters', this.character.id]);
+  }
 }

@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RickAndMortyListComponent } from './components/rick-and-morty-list/rick-and-morty-list.component';
 import { RickAndMortyItemComponent } from './components/rick-and-morty-item/rick-and-morty-item.component';
-import { HomeComponent } from './components/home/home.component';
+import { CharacterComponent } from './pages/character/character.component';
+import { HomeComponent } from './pages/home/home.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,16 +17,12 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     RickAndMortyListComponent,
     RickAndMortyItemComponent,
+    CharacterComponent,
     HomeComponent,
-    FilterPipe
+    FilterPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
