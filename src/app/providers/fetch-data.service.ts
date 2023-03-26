@@ -16,7 +16,7 @@ export class FetchDataService {
 
   /**
    * Returns an Observable that fetches a list of characters from the Rick and Morty API.
-   * @returns {Observable<AppData>} An Observable that resolves with an AppData object containing the data - info and list of characters.
+   * @returns {Observable<AppData>} an Observable that resolves with an AppData object containing the data - info and list of characters.
    */
   public getCharacters(): Observable<AppData> {
     return this._http
