@@ -32,10 +32,10 @@ export class FetchDataService {
 
   /**
    * Returns an Observable that fetches a unique character from the Rick and Morty API.
-   * @param {number} id The ID of the character to fetch from the API.
+   * @param {string} id The ID of the character to fetch from the API.
    * @returns {Observable<RickAndMorty>} An Observable that resolves with the data for the requested character.
    */
-  public getUniqueCharacter(id: number): Observable<RickAndMorty> {
+  public getUniqueCharacter(id: string): Observable<RickAndMorty> {
     this._spinner.show();
 
     return this._http.get<RickAndMorty>(`${this.URL}/${id}`).pipe(

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 
 import { RickAndMorty } from 'src/app/models/characters/rickAndMorty.model';
 import { FetchDataService } from 'src/app/providers/fetch-data.service';
@@ -22,8 +22,11 @@ export class CharacterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this._route.snapshot.params['id'];
-    this.character$ = this._fetchDataS.getUniqueCharacter(id as number);
+    this.character$ = this._route.paramMap.pipe(
+      switchMap((params) =>
+        this._fetchDataS.getUniqueCharacter(params.get('id') as string)
+      )
+    );
   }
 
   goBack() {
