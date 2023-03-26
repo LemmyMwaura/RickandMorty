@@ -1,13 +1,9 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
 import { FetchDataService } from 'src/app/providers/fetch-data.service';
+import { WatchInputService } from 'src/app/providers/watch-input.service';
 import { AppData } from 'src/app/models/app-data/appdata.model';
 
 @Component({
@@ -17,12 +13,16 @@ import { AppData } from 'src/app/models/app-data/appdata.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RickAndMortyListComponent implements OnInit {
-  @Input() searchString!: string;
+  searchString$!: Observable<string>;
   characters$!: Observable<AppData>;
 
-  constructor(private _fetchDataService: FetchDataService) {}
+  constructor(
+    private _fetchDataService: FetchDataService,
+    private _watchInput: WatchInputService
+  ) {}
 
   ngOnInit(): void {
+    this.searchString$ = this._watchInput.filter$;
     this.characters$ = this._fetchDataService.getCharacters();
   }
 }
