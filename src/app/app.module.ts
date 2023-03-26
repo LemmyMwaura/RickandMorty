@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { RickAndMortyListComponent } from './components/rick-and-morty-list/rick-and-morty-list.component';
@@ -21,7 +23,13 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     FilterPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgxSpinnerModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

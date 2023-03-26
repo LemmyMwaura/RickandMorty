@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Observable, catchError, retry, throwError } from 'rxjs';
+import { Observable, catchError, retry, tap, throwError } from 'rxjs';
+
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { AppData } from '../models/app-data/appdata.model';
 import { RickAndMorty } from '../models/characters/rickAndMorty.model';
@@ -12,16 +14,20 @@ import { RickAndMorty } from '../models/characters/rickAndMorty.model';
 export class FetchDataService {
   private URL = 'https://rickandmortyapi.com/api/character';
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private _spinner: NgxSpinnerService) {}
 
   /**
    * Returns an Observable that fetches a list of characters from the Rick and Morty API.
    * @returns {Observable<AppData>} an Observable that resolves with an AppData object containing the data - info and list of characters.
    */
   public getCharacters(): Observable<AppData> {
-    return this._http
-      .get<AppData>(this.URL)
-      .pipe(retry(3), catchError(this.handleError));
+    this._spinner.show();
+
+    return this._http.get<AppData>(this.URL).pipe(
+      retry(3),
+      catchError(this.handleError),
+      tap(() => this._spinner.hide())
+    );
   }
 
   /**
@@ -30,9 +36,13 @@ export class FetchDataService {
    * @returns {Observable<RickAndMorty>} An Observable that resolves with the data for the requested character.
    */
   public getUniqueCharacter(id: number): Observable<RickAndMorty> {
-    return this._http
-      .get<RickAndMorty>(`${this.URL}/${id}`)
-      .pipe(retry(3), catchError(this.handleError));
+    this._spinner.show();
+
+    return this._http.get<RickAndMorty>(`${this.URL}/${id}`).pipe(
+      retry(3),
+      catchError(this.handleError),
+      tap(() => this._spinner.hide())
+    );
   }
 
   private handleError(err: HttpErrorResponse) {

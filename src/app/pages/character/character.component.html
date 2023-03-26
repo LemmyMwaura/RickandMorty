@@ -1,5 +1,6 @@
 <section class="character-page">
-  <div class="character_wrapper" *ngIf="character$ | async as character">
+  <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+  <div class="character_wrapper" *ngIf="(character$ | async) as character">
     <img class="image" src={{character.image}} alt="">
     <div class="character">
       <div class="specs">

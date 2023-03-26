@@ -1,5 +1,6 @@
 <section>
-  <div class="wrapper" *ngIf="characters$ | async as characters">
+  <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+  <div class="wrapper" *ngIf="(characters$ | async) as characters">
     <div *ngFor="let character of (characters.results|filter:searchString)">
       <app-rick-and-morty-item [character]="character"></app-rick-and-morty-item>
     </div>
