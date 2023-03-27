@@ -15,22 +15,22 @@ import { RickAndMorty } from '../models/characters/rickAndMorty.model';
 export class FilterPipe implements PipeTransform {
   /**
    * Transforms an observable of AppData and an observable of string into an observable of filtered Rick and Morty characters.
-   * @param {Observable<AppData>} characters$ An observable of characters.
+   * @param {Observable<AppData>} charactersData$ An observable of characters.
    * @param {Observable<string>} filterString$ An observable of filter string.
    * @returns {Observable<RickAndMorty[]>} An observable of filtered Rick and Morty characters.
    */
-  transform(characters$: Observable<AppData>, filterString$: Observable<string>): Observable<RickAndMorty[]> {
-    return combineLatest([filterString$, characters$]).pipe(
-      map(([filter, AppData]) => {
-        const { results: characters } = AppData;
+  transform(charactersData$: Observable<AppData>, filterString$: Observable<string>): Observable<RickAndMorty[]> {
+    return combineLatest([filterString$, charactersData$]).pipe(
+      map(([filter, charactersData]) => {
+        const { results: characters } = charactersData;
 
         if (characters.length === 0 || filter === '') {
-          return characters
+          return characters;
         }
 
-        return characters.filter((char) => {
-          char.name.toLowerCase().includes(filter.toLowerCase());
-        });
+        return characters.filter((char) =>
+          char.name.toLowerCase().includes(filter.toLowerCase())
+        );
       }),
       switchMap((characters) => of(characters))
     );

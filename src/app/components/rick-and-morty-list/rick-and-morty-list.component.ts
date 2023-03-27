@@ -14,7 +14,7 @@ import { AppData } from 'src/app/models/app-data/appdata.model';
 })
 export class RickAndMortyListComponent implements OnInit {
   searchString$!: Observable<string>;
-  characters$!: Observable<AppData>;
+  charactersData$!: Observable<AppData>;
 
   constructor(
     private _fetchDataService: FetchDataService,
@@ -23,6 +23,6 @@ export class RickAndMortyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchString$ = this._watchInput.filter$;
-    this.characters$ = this._fetchDataService.getCharacters();
+    this.charactersData$ = this._fetchDataService.getCharacters();
   }
 }
