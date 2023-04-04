@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { Subscription, tap } from 'rxjs';
@@ -10,7 +10,7 @@ import { WatchInputService } from 'src/app/providers/watch-input.service';
   styleUrls: ['./form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
   filter = new FormControl<string>('');
   subscription!: Subscription;
 
@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
       .subscribe();
   }
 
-  ngOnDestory() {
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

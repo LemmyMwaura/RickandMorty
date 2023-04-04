@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Observable, switchMap, tap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 
 import { RickAndMorty } from 'src/app/models/characters/rickAndMorty.model';
 import { FetchDataService } from 'src/app/providers/fetch-data.service';

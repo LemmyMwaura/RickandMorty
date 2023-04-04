@@ -24,10 +24,6 @@ export class FilterPipe implements PipeTransform {
       map(([filter, charactersData]) => {
         const { results: characters } = charactersData;
 
-        if (characters.length === 0 || filter === '') {
-          return characters;
-        }
-
         return characters.filter((char) =>
           char.name.toLowerCase().includes(filter.toLowerCase())
         );
