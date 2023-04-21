@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Observable, catchError, retry, tap, throwError } from 'rxjs';
-
+import { Observable, catchError, retry, throwError, finalize } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { AppData } from '../models/app-data/appdata.model';
@@ -26,7 +25,7 @@ export class FetchDataService {
     return this._http.get<AppData>(this.URL).pipe(
       retry(3),
       catchError(this.handleError),
-      tap(() => this._spinner.hide())
+      finalize(() => this._spinner.hide())
     );
   }
 
@@ -41,7 +40,7 @@ export class FetchDataService {
     return this._http.get<RickAndMorty>(`${this.URL}/${id}`).pipe(
       retry(3),
       catchError(this.handleError),
-      tap(() => this._spinner.hide())
+      finalize(() => this._spinner.hide())
     );
   }
 

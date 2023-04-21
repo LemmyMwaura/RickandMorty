@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class WatchInputService {
   private filterSub = new BehaviorSubject<string>('');
-  public filter$ = this.filterSub.asObservable();
+  readonly filter$ = this.filterSub.asObservable();
 
   constructor() {}
 
