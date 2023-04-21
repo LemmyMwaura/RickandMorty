@@ -1,6 +1,10 @@
 import { Location } from './location.model';
 import { Origin } from './origin.model';
 
+/**
+ * Represents a character from the "Rick and Morty" API.
+ * @interface
+ */
 export interface RickAndMorty {
   id: number;
   name: string;
